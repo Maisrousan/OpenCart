@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Willson\AppData\Local\Temp\testng-eclipse-71674851\testng-customsuite.xml</span>
+                    <span>C:\Users\Willson\AppData\Local\Temp\testng-eclipse-287869499\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">5 methods, 1 failed,   4 passed</span>
+                    <span class="method-stats">3 methods, 2 failed,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -103,7 +103,12 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="MyTestCasesDribbble" class="method navigator-link" hash-for-method="SearchForIteam">SearchForIteam</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="MyTestCasesDribbble" class="method navigator-link" hash-for-method="CheckOut">CheckOut</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="MyTestCasesDribbble" class="method navigator-link" hash-for-method="SignUp">SignUp</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -117,22 +122,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="MyTestCasesDribbble" class="method navigator-link" hash-for-method="LogOut">LogOut</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="MyTestCasesDribbble" class="method navigator-link" hash-for-method="Login">Login</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="MyTestCasesDribbble" class="method navigator-link" hash-for-method="SearchNotFoundItem">SearchNotFoundItem</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="MyTestCasesDribbble" class="method navigator-link" hash-for-method="SignUp">SignUp</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="MyTestCasesDribbble" class="method navigator-link" hash-for-method="AddToTheCart">AddToTheCart</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -155,19 +145,18 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="SearchForIteam">
-                  </a> <!-- SearchForIteam -->
-                  <span class="method-name">SearchForIteam</span>
-                  <div class="stack-trace">org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found
+                  <a name="CheckOut">
+                  </a> <!-- CheckOut -->
+                  <span class="method-name">CheckOut</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#input\-payment\-firstname&quot;}
   (Session info: chrome=138.0.7204.185)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.33.0&apos;, revision: &apos;2c6aaad03a&apos;
 System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.7&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [9ffb90c42bc293f41610533bfcd8774f, sendKeysToElement {id=f.C5BB2C9E6DADDCCD96D5EC821FD0EF51.d.4BAF8D89346697C9AFD934BDD2BAA851.e.127, value=[Ljava.lang.CharSequence;@67207d8a}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.185, chrome: {chromedriverVersion: 138.0.7204.183 (e90faf484dd..., userDataDir: C:\Users\Willson\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49766}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49766/devtoo..., se:cdpVersion: 138.0.7204.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (9ffb90c42bc293f41610533bfcd8774f)] -&gt; xpath: //input[@placeholder=&apos;Search&apos;]]
-Session ID: 9ffb90c42bc293f41610533bfcd8774f
+Command: [4cb28dc93a17fa8a450c7c93fe45e66c, findElement {using=id, value=input-payment-firstname}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.185, chrome: {chromedriverVersion: 138.0.7204.183 (e90faf484dd..., userDataDir: C:\Users\Willson\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57071}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57071/devtoo..., se:cdpVersion: 138.0.7204.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4cb28dc93a17fa8a450c7c93fe45e66c
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -178,9 +167,54 @@ Session ID: 9ffb90c42bc293f41610533bfcd8774f
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:110)
-	at MyTestCasesDribbble.SearchForIteam(MyTestCasesDribbble.java:156)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
+	at MyTestCasesDribbble.CheckOut(MyTestCasesDribbble.java:280)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SignUp">
+                  </a> <!-- SignUp -->
+                  <span class="method-name">SignUp</span>
+                  <div class="stack-trace">java.sql.SQLException: Column &apos;addressLine1&apos; not found.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:98)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:90)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:64)
+	at com.mysql.cj.jdbc.result.ResultSetImpl.findColumn(ResultSetImpl.java:584)
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getString(ResultSetImpl.java:896)
+	at MyTestCasesDribbble.SignUp(MyTestCasesDribbble.java:76)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -221,30 +255,9 @@ Session ID: 9ffb90c42bc293f41610533bfcd8774f
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="LogOut">
-                  </a> <!-- LogOut -->
-                  <span class="method-name">LogOut</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="Login">
-                  </a> <!-- Login -->
-                  <span class="method-name">Login</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="SearchNotFoundItem">
-                  </a> <!-- SearchNotFoundItem -->
-                  <span class="method-name">SearchNotFoundItem</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="SignUp">
-                  </a> <!-- SignUp -->
-                  <span class="method-name">SignUp</span>
+                  <a name="AddToTheCart">
+                  </a> <!-- AddToTheCart -->
+                  <span class="method-name">AddToTheCart</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -252,7 +265,7 @@ Session ID: 9ffb90c42bc293f41610533bfcd8774f
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Willson\AppData\Local\Temp\testng-eclipse-71674851\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Willson\AppData\Local\Temp\testng-eclipse-287869499\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -301,32 +314,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(5);
+data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'Login')
+data.setCell(0, 1, 'AddToTheCart')
 data.setCell(0, 2, 'MyTestCasesDribbble')
-data.setCell(0, 3, 2649);
+data.setCell(0, 3, 3274);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'SignUp')
 data.setCell(1, 2, 'MyTestCasesDribbble')
-data.setCell(1, 3, 2191);
+data.setCell(1, 3, 676);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'LogOut')
+data.setCell(2, 1, 'CheckOut')
 data.setCell(2, 2, 'MyTestCasesDribbble')
-data.setCell(2, 3, 649);
-data.setCell(3, 0, 3)
-data.setCell(3, 1, 'SearchNotFoundItem')
-data.setCell(3, 2, 'MyTestCasesDribbble')
-data.setCell(3, 3, 567);
-data.setCell(4, 0, 4)
-data.setCell(4, 1, 'SearchForIteam')
-data.setCell(4, 2, 'MyTestCasesDribbble')
-data.setCell(4, 3, 469);
+data.setCell(2, 3, 619);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 6 seconds</span>
+              <span class="suite-total-time">Total running time: 4 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -341,13 +346,27 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">1 ignored method</span>
+            <span class="header-content">8 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
               <span class="ignored-class-name">MyTestCasesDribbble</span>
               <div class="ignored-methods-div">
                 <span class="ignored-method-name">SortItems</span>
+                <br/>
+                <span class="ignored-method-name">ContactForm</span>
+                <br/>
+                <span class="ignored-method-name">SearchNotFoundItem</span>
+                <br/>
+                <span class="ignored-method-name">LogOut</span>
+                <br/>
+                <span class="ignored-method-name">ChangeCurrency</span>
+                <br/>
+                <span class="ignored-method-name">OpenIteamPage</span>
+                <br/>
+                <span class="ignored-method-name">Login</span>
+                <br/>
+                <span class="ignored-method-name">SearchForIteam</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -365,26 +384,20 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">SignUp</span>
-                <span class="method-start">2796 ms</span>
+                <span class="method-start">3589 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">LogOut</span>
-                <span class="method-start">4999 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">Login</span>
-                <span class="method-start">5653 ms</span>
+                <span class="method-name">AddToTheCart</span>
+                <span class="method-start">4282 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">SearchForIteam</span>
-                <span class="method-start">8306 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">SearchNotFoundItem</span>
-                <span class="method-start">8789 ms</span>
+                <span class="method-name">CheckOut</span>
+                <span class="method-start">7563 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

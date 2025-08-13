@@ -3,6 +3,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 import java.util.Random;
 
 import org.openqa.selenium.By;
@@ -21,6 +22,7 @@ public class MyTestCasesDribbble {
 	WebDriver driver = new ChromeDriver();
 	String RegisterURL = "https://opencart.dreamvention.com/index.php?route=account/register";
 	String LoginURL = "https://opencart.dreamvention.com/index.php?route=account/login";
+	String HomePage = "https://opencart.dreamvention.com/index.php?route=common/home";
 	Connection con;
 	Statement stmt;
 	ResultSet rs;
@@ -29,6 +31,9 @@ public class MyTestCasesDribbble {
 	String FisrtName;
 	String LastName;
 	String Mobile;
+	String Company ;
+	String Address ;
+	String City;
 	
 	String Email ;
 	String Password = "KKvv234&";
@@ -44,11 +49,11 @@ public class MyTestCasesDribbble {
 		driver.get(URL);
 		driver.manage().window().maximize();
 
-		// WebElement = driver.findElement();
+		
 
 	}
 
-	@Test(priority = 1)
+	@Test(priority = 1 , enabled = true)
 	public void SignUp() throws  SQLException {
 
 		driver.navigate().to(RegisterURL);
@@ -61,14 +66,7 @@ public class MyTestCasesDribbble {
 				+ "WHERE customerNumber BETWEEN 103 AND 200\r\n"
 				+ "ORDER BY RAND()\r\n"
 				+ "LIMIT 1; ";
-		stmt = con.createStatement();
-		rs = stmt.executeQuery(QueryToRead);
-		while (rs.next()) {
-
-			FisrtName = rs.getNString("contactFirstName");
-			LastName = rs.getNString("contactLastName");
-			Mobile = rs.getNString("phone");
-		}
+	
 		int RandomNum = rand.nextInt(238);
 		Email = FisrtName + RandomNum+LastName + "@gmail.com";
 
@@ -103,7 +101,7 @@ public class MyTestCasesDribbble {
 	}
 	
 	
-	@Test (priority = 2 , enabled=true)
+	@Test (priority = 2 , enabled=false)
 	public void LogOut () {
 		
 		WebElement MyAccountButton = driver.findElement(By.xpath("//a[@title='My Account']"));
@@ -119,7 +117,7 @@ public class MyTestCasesDribbble {
 	}
 
 	
-	@Test (priority = 3, enabled =true)
+	@Test (priority = 3, enabled =false)
 	public void Login () throws InterruptedException {
 		
 		Thread.sleep(2000);
@@ -148,7 +146,7 @@ public class MyTestCasesDribbble {
       
         }
         
-        @Test (priority= 5, enabled=true)
+        @Test (priority= 5, enabled=false)
         public void SearchForIteam() {
         	
         	WebElement SearchInput = driver.findElement(By.xpath("//input[@placeholder='Search']"));
@@ -161,7 +159,7 @@ public class MyTestCasesDribbble {
         	
         	
         }
-        @Test (priority= 6, enabled=true)
+        @Test (priority= 6, enabled=false)
         public void SearchNotFoundItem () {
         	
         	
@@ -178,7 +176,123 @@ public class MyTestCasesDribbble {
         	
         }
 	
+	@Test (priority = 7 , enabled = false)
+	public void OpenIteamPage () throws InterruptedException {
+		
+		driver.navigate().to(HomePage);
+		
+		
+		WebElement Iteam1 = driver.findElement(By.xpath("//img[@title='Canon EOS 5D']"));
+		Iteam1.click();
+		
+		WebElement ItemPic = driver.findElement(By.xpath("//li[2]//a[1]//img[1]"));
+		ItemPic.click();
+		
+		WebElement NextOption = driver.findElement(By.xpath("//button[@title='Next (Right arrow key)']"));
+		NextOption.click();
+		Thread.sleep(1000);
+		WebElement CloseButton = driver.findElement(By.xpath("//button[normalize-space()='×']"));
+		CloseButton.click();
+		
+		driver.navigate().back();
+		
+	}
 	
-	
+	@Test (priority = 8 , enabled = false)
+	public void ChangeCurrency () throws InterruptedException {
+		
+		WebElement CurrencyButton = driver.findElement(By.cssSelector(".btn.btn-link.dropdown-toggle"));
+		CurrencyButton.click();
+		
+		Thread.sleep(2000);
+		
+		List<WebElement> Options = driver.findElements(By.cssSelector("ul[class='dropdown-menu']"));
+		int OptionsSize = Options.size();
+		int RandomIndex = rand.nextInt(OptionsSize);
+		Options.get(RandomIndex).click();
+		
+	}
         
+	@Test (priority = 8 , enabled =false)
+	  public void ContactForm () throws InterruptedException {
+		WebElement ContactUsButton = driver.findElement(By.xpath("//a[normalize-space()='Contact Us']"));
+		ContactUsButton.click();
+		WebElement NameInput = driver.findElement(By.id("input-name"));
+		NameInput.sendKeys(FisrtName + LastName);
+		
+		WebElement EmailInput = driver.findElement(By.id("input-email"));
+		EmailInput.sendKeys(Email);
+		WebElement Enquiry = driver.findElement(By.id("input-enquiry"));
+		Enquiry.sendKeys("Just For Test");
+		
+		Thread.sleep(2000);
+		
+		WebElement SubmitButton = driver.findElement(By.xpath("//input[@value='Submit']"));
+		SubmitButton.click();
+		
+		
+	}
+	
+	
+	@Test (priority = 9 , enabled =true)
+	public void  AddToTheCart () throws InterruptedException {
+		driver.navigate().to(HomePage);
+		
+		List <WebElement> ItemsContainer = driver.findElements(By.cssSelector(".product-thumb.transition"));
+		int HomePageItems = ItemsContainer.size();
+		int RandomItemIndex = rand.nextInt(HomePageItems);
+		WebElement ItemClick =  ItemsContainer.get(RandomItemIndex);
+	
+		WebElement PicLink = ItemClick.findElement(By.cssSelector(".image a"));
+		PicLink.click();
+		
+		Thread.sleep(2000);		
+		WebElement Qty = driver.findElement(By.id("input-quantity"));
+		Qty.clear();
+		int RandomQty = rand.nextInt(3 ,7);
+	
+		Qty.sendKeys(String.valueOf(RandomQty));
+		WebElement AddButton = driver.findElement(By.cssSelector("#button-cart"));
+		AddButton.click();
+		
+		
+		
+	}
+	
+	
+	
+	@Test (priority = 10 , enabled =true)
+	public void CheckOut () {
+		
+		WebElement CheckOut = driver.findElement(By.xpath("//span[normalize-space()='Checkout']"));
+		CheckOut.click();
+		
+		WebElement FirstName2 = driver.findElement(By.id("input-payment-firstname"));
+		WebElement LastName2 = driver.findElement(By.id("input-payment-lastname"));
+		WebElement Company2 = driver.findElement(By.id("input-payment-company"));
+		WebElement Adress1 = driver.findElement(By.id("input-payment-address-1"));
+		WebElement Adress2 = driver.findElement(By.id("input-payment-address-2"));
+		WebElement City2 = driver.findElement(By.id("input-payment-city"));
+		WebElement PostCode = driver.findElement(By.id("input-payment-postcode"));
+		WebElement Country = driver.findElement(By.id("input-quantity"));
+		WebElement State = driver.findElement(By.id("input-quantity"));
+		
+		
+		 
+		
+		FirstName2.sendKeys(FisrtName);
+		LastName2.sendKeys(LastName);
+		Company2.sendKeys(Company);
+		Adress1.sendKeys(Address);
+		Adress2.sendKeys(Address);
+		City2.sendKeys(City);
+		PostCode.sendKeys("888");
+		
+		
+		
+		
+		
+	}
+	
+	
 }

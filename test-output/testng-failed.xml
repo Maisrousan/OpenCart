@@ -5,7 +5,8 @@
     <classes>
       <class name="MyTestCasesDribbble">
         <methods>
-          <include name="SearchForIteam"/>
+          <include name="CheckOut"/>
+          <include name="SignUp"/>
           <include name="MySetUp"/>
         </methods>
       </class> <!-- MyTestCasesDribbble -->
