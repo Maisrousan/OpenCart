@@ -1,3 +1,4 @@
+import java.lang.annotation.Target;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -48,8 +49,37 @@ public class MyTestCasesDribbble {
 
 		driver.get(URL);
 		driver.manage().window().maximize();
+		
+		String QueryToRead =
+			    "SELECT contactFirstName, contactLastName, phone, addressLine1, customerName , city " +
+			    	    "FROM customers " +
+			    	    "WHERE customerNumber BETWEEN 103 AND 200 " +
+			    	    "AND contactFirstName IS NOT NULL " +
+			    	    "AND contactLastName IS NOT NULL " +
+			    	    "AND phone IS NOT NULL " +
+			    	    "AND addressLine1 IS NOT NULL " +
+			    	    "AND customerName IS NOT NULL " +
+			    	    "AND city IS NOT NULL " +
+			    	    "ORDER BY RAND() " +
+			    	    "LIMIT 1";
 
 		
+		stmt = con.createStatement();
+	    rs = stmt.executeQuery(QueryToRead);
+
+	    if (rs.next()) {
+	        FisrtName = rs.getString("contactFirstName");
+	        LastName  = rs.getString("contactLastName");
+	        Mobile    = rs.getString("phone");
+	        Address  = rs.getNString("addressLine1");
+	        Company = rs.getNString("customerName");
+	        City = rs.getNString("city");
+	    
+	    }
+		
+		
+		int RandomNum = rand.nextInt(238);
+		Email = FisrtName + RandomNum+LastName + "@gmail.com";
 
 	}
 
@@ -61,14 +91,11 @@ public class MyTestCasesDribbble {
 		
 
 	
-		String QueryToRead = "SELECT contactFirstName, contactLastName, phone\r\n"
-				+ "FROM customers\r\n"
-				+ "WHERE customerNumber BETWEEN 103 AND 200\r\n"
-				+ "ORDER BY RAND()\r\n"
-				+ "LIMIT 1; ";
 	
-		int RandomNum = rand.nextInt(238);
-		Email = FisrtName + RandomNum+LastName + "@gmail.com";
+
+
+	
+		
 
 		WebElement FirstNameInput = driver.findElement(By.id("input-firstname"));
 		WebElement LastNameInput = driver.findElement(By.id("input-lastname"));
@@ -262,10 +289,12 @@ public class MyTestCasesDribbble {
 	
 	
 	@Test (priority = 10 , enabled =true)
-	public void CheckOut () {
+	public void CheckOut () throws InterruptedException  {
 		
 		WebElement CheckOut = driver.findElement(By.xpath("//span[normalize-space()='Checkout']"));
 		CheckOut.click();
+		Thread.sleep(2000);
+		
 		
 		WebElement FirstName2 = driver.findElement(By.id("input-payment-firstname"));
 		WebElement LastName2 = driver.findElement(By.id("input-payment-lastname"));
@@ -274,9 +303,9 @@ public class MyTestCasesDribbble {
 		WebElement Adress2 = driver.findElement(By.id("input-payment-address-2"));
 		WebElement City2 = driver.findElement(By.id("input-payment-city"));
 		WebElement PostCode = driver.findElement(By.id("input-payment-postcode"));
-		WebElement Country = driver.findElement(By.id("input-quantity"));
-		WebElement State = driver.findElement(By.id("input-quantity"));
-		
+		WebElement Country = driver.findElement(By.id("input-payment-country"));
+		WebElement State = driver.findElement(By.id("input-payment-zone"));
+		WebElement ContButton = driver.findElement(By.id("button-payment-address"));
 		
 		 
 		
@@ -288,8 +317,47 @@ public class MyTestCasesDribbble {
 		City2.sendKeys(City);
 		PostCode.sendKeys("888");
 		
+		int SizeOfCountryOptions= Country.findElements(By.tagName("option")).size();
+		Select CountySelect = new Select(Country);
+		int RandomCountryIndex = rand.nextInt(1 , SizeOfCountryOptions);
+		CountySelect.selectByIndex(RandomCountryIndex);
+		 
+		Thread.sleep(2000);
+		
+		int SizeOfStateOptions = State.findElements(By.tagName("option")).size();
+		Select StateSelect = new Select(State);
+		int RandomStateIndex = rand.nextInt(1 , SizeOfStateOptions);
+		StateSelect.selectByIndex(RandomStateIndex);
+		
+		ContButton.click();
+		
+		//Step 3
+		Thread.sleep(2000);
+		WebElement RadioButton = driver.findElement(By.cssSelector("input[value='existing'][name='shipping_address']"));
+		WebElement Contbutton2 = driver.findElement(By.xpath("//input[@id='button-shipping-address']"));
+		
+		RadioButton.click();
+        Contbutton2.click();
 		
 		
+		//Step 4
+		Thread.sleep(2000);
+		WebElement PickUp = driver.findElement(By.cssSelector("input[value='pickup.pickup']"));
+		WebElement Comment = driver.findElement(By.xpath("//textarea[@name='comment']"));
+		WebElement Contbutton3 = driver.findElement(By.xpath("//input[@id='button-shipping-method']"));
+		
+		PickUp.click();
+		Comment.sendKeys("Hello");
+		Contbutton3.click();
+		
+		//Step5
+		Thread.sleep(2000);
+		
+		WebElement PaymentMethod = driver.findElement(By.xpath("//input[@value='paypal']"));
+		WebElement ContButton4= driver.findElement(By.cssSelector("#button-payment-method"));
+		
+		PaymentMethod.click();
+		ContButton4.click();
 		
 		
 	}
